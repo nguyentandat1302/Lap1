@@ -236,10 +236,9 @@
     <Content Include="Views\User\DangKy.cshtml" />
     <Content Include="Views\User\DangNhap.cshtml" />
     <Content Include="Views\Shared\NhaXuatBanPartial.cshtml" />
-    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
-    <Content Include="Views\Shared\GioiThieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

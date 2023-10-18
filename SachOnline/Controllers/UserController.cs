@@ -67,5 +67,10 @@ namespace SachOnline.Controllers
             }
             return View();
         }
+        public ActionResult DangXuat()
+        {
+            Session["TaiKhoan"] = null;
+            return RedirectToAction("Index","SachOnline");
+        }
     }
 }

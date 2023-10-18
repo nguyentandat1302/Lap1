@@ -4,16 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-   
+
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/Site.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-    <header>
+   
        
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -38,7 +40,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sách Theo Chủ Đề <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                               @Html.Action("ChuDePartial","SachOnline")
+                                @Html.Action("ChuDePartial", "SachOnline")
                             </ul>
                         </li>
                     </u>
@@ -48,7 +50,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sách Theo Nhà Xuất Bản <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                              @Html.Action("NhaXuatBanPartial","SachOnline")
+                                @Html.Action("NhaXuatBanPartial", "SachOnline")
 
                             </ul>
                         </li>
@@ -62,25 +64,41 @@
                     </div>
                     <button style="background-color:limegreen" type="submit" class="btn btn-default">Submit</button>
                 </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("GioHang","GioHang")"><span class=" fade-in-left-button glyphicon glyphicon-shopping-cart"></span></a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("DangKy","User")"><span class=" fade-in-left-button glyphicon glyphicon-user"></span> Sign Up</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("DangNhap","User")"><span class=" fade-in-left-button glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+                @if (Session["TaiKhoan"] != null)
+                {
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "GioHang")"><span class=" fade-in-left-button glyphicon glyphicon-shopping-cart"></span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("DangXuat", "User")"><span class=" fade-in-left-button glyphicon glyphicon-log-out"></span> Đăng Xuất</a></li>
+                    </ul>
+
+
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "GioHang")"><span class=" fade-in-left-button glyphicon glyphicon-shopping-cart"></span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("DangKy", "User")"><span class=" fade-in-left-button glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("DangNhap", "User")"><span class=" fade-in-left-button glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                }
+
             </div>
         </nav>
         <br />
     
-        <div class="container body-content">
+        <div class="container">
             <div class="row">
                 <img src="https://thuthuatnhanh.com/wp-content/uploads/2022/06/Anh-sale-dep-nhat.jpg" alt="..." width=50 height=400>
 
             </div>
-            <div class="row">
+            <div class="row col-12">
                 <div class="col-3">
                     @Html.Action("ChuDePartial", "SachOnline")
                     @Html.Action("NhaXuatBanPartial", "SachOnline")
@@ -102,10 +120,9 @@
                 <p>Email:abc@gmail.com </p>
             </footer>
         </div>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
+      
         <link href="~/Content/PagedList.css" rel="stylesheet" />
         @RenderSection("scripts", required: false)
-    </header>
+   
 </body>
 </html>
