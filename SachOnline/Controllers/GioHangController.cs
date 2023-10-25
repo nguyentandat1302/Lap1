@@ -37,7 +37,7 @@ namespace SachOnline.Controllers
                 var model = (from ct in lstCTGioHang
                              join s in db.SACH
                              on ct.Masach equals s.Masach
-                             select new  {MaSach = ct.Masach , TenSach = s.Tensach, AnhBia=s.Anhbia, GiaBan =s.Giaban,
+                             select new  {MaDonHang = ct.MaDonHang,MaSach = ct.Masach , TenSach = s.Tensach,MoTa = s.Mota, AnhBia=s.Anhbia, GiaBan =s.Giaban,
                              SoLuong =ct.Soluong,ThanhTien = ct.Soluong * s.Giaban}).Select(t=>t.ToExpando()).ToList();
                              
                 return View(model);
@@ -50,7 +50,7 @@ namespace SachOnline.Controllers
             var UserLogin = (KHACHHANG)Session["TaiKhoan"];
             if (UserLogin == null)
             {
-                return Redirect("/User/TaiKhoan");
+                return Redirect("/User/DangNhap");
             }
             else
             {
@@ -84,7 +84,7 @@ namespace SachOnline.Controllers
                 db.CHITIETDONTHANG.AddOrUpdate(CTDonHang);
                 db.SaveChanges();
             }
-            return View();
+            return RedirectToAction("index");
         }
     }
 }
