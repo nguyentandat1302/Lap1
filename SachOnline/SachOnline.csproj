@@ -151,6 +151,10 @@
     <Compile Include="Migrations\202310110645117_n1.designer.cs">
       <DependentUpon>202310110645117_n1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311010800284_dfsd.cs" />
+    <Compile Include="Migrations\202311010800284_dfsd.designer.cs">
+      <DependentUpon>202311010800284_dfsd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CHITIETDONTHANG.cs" />
     <Compile Include="Models\CHUDE.cs" />
@@ -239,6 +243,7 @@
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
+    <Content Include="Views\GioHang\XacNhanDatHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -280,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202310110645117_n1.resx">
       <DependentUpon>202310110645117_n1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311010800284_dfsd.resx">
+      <DependentUpon>202311010800284_dfsd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

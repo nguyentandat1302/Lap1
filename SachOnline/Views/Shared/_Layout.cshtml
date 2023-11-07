@@ -93,19 +93,27 @@
     </nav>
     <br />
 
-    <div class="container">
+    <div class="container body-content">
         <div class="row">
             <img src="https://thuthuatnhanh.com/wp-content/uploads/2022/06/Anh-sale-dep-nhat.jpg" alt="..." width=50 height=400>
         </div>
         <div class="row">
             <div class="col-3">
-                @Html.Action("ChuDePartial", "SachOnline")
-                @Html.Action("NhaXuatBanPartial", "SachOnline")
+                <div>
+                    <div>
+                        @Html.Action("ChuDePartial", "SachOnline")
+                    </div>
+                    <br />
+                    <div>
+                        @Html.Action("NhaXuatBanPartial", "SachOnline")
+                    </div>
+                </div>
             </div>
             <div class="col-9">
                 @RenderBody()
             </div>
         </div>
+        <hr />
         <div class="row">
             @Html.Action("SachBanNhieuPartial", "SachOnline")
         </div>

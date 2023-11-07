@@ -22,7 +22,7 @@ namespace SachOnline.Controllers
             }
             else
             {
-                var GioHang = db.DONDATHANG.FirstOrDefault(d => d.Dathanhtoan == false && d.MaKH == UserLogin.MaKH);
+                var GioHang = db.DONDATHANG.FirstOrDefault(d => d.Ngaydat == null && d.MaKH == UserLogin.MaKH);
                 if (GioHang == null)
                 {
                     GioHang = new DONDATHANG
@@ -37,8 +37,8 @@ namespace SachOnline.Controllers
                 var model = (from ct in lstCTGioHang
                              join s in db.SACH
                              on ct.Masach equals s.Masach
-                             select new  {MaDonHang = ct.MaDonHang,MaSach = ct.Masach , TenSach = s.Tensach,MoTa = s.Mota, AnhBia=s.Anhbia, GiaBan =s.Giaban,
-                             SoLuong =ct.Soluong,ThanhTien = ct.Soluong * s.Giaban}).Select(t=>t.ToExpando()).ToList();
+                             select new  {Masach = ct.Masach, MaDonHang = ct.MaDonHang , TenSach = s.Tensach, MoTa = s.Mota, AnhBia=s.Anhbia, GiaBan =s.Giaban,
+                             SoLuongTon = s.Soluongton,    SoLuong =ct.Soluong,ThanhTien = ct.Soluong * s.Giaban}).Select(t=>t.ToExpando()).ToList();
                              
                 return View(model);
             }
@@ -54,7 +54,7 @@ namespace SachOnline.Controllers
             }
             else
             {
-                var GioHang = db.DONDATHANG.FirstOrDefault(d => d.Dathanhtoan == false && d.MaKH == UserLogin.MaKH);
+                var GioHang = db.DONDATHANG.FirstOrDefault(d => d.Ngaydat == null && d.MaKH == UserLogin.MaKH);
                 if (GioHang == null)
                 {
                     GioHang = new DONDATHANG
@@ -85,6 +85,56 @@ namespace SachOnline.Controllers
                 db.SaveChanges();
             }
             return RedirectToAction("index");
+        }
+        public ActionResult CapNhapGioHang(int MaDonHang, int MaSach,int SoLuong)
+        {
+            var ct = db.CHITIETDONTHANG.FirstOrDefault(t=>t.MaDonHang==MaDonHang && t.Masach ==MaSach);
+            if(SoLuong ==0)
+            {
+                db.CHITIETDONTHANG.Remove(ct);
+            }
+            else
+            {
+                ct.Soluong = SoLuong;
+                db.CHITIETDONTHANG.AddOrUpdate(ct);
+            }
+         
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+        public ActionResult XoaGioHang(int MaDonHang,int MaSach)
+        {
+            var ct=db.CHITIETDONTHANG.FirstOrDefault(t=> t.MaDonHang ==MaDonHang &&t.Masach==MaSach);
+            db.CHITIETDONTHANG.Remove(ct);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+
+        public ActionResult DatHang(int MaDonHang,FormCollection f)
+        {
+            var dh = db.DONDATHANG.FirstOrDefault(t=>t.MaDonHang==MaDonHang);
+            if(dh != null)
+            {
+                dh.DiaChiGH = f["DiaChiGH"];
+                dh.Tinhtranggiaohang = false;
+                string k = f["NgayDat"];
+                dh.Ngaydat = DateTime.Parse(f["NgayDat"]);
+                dh.Ngaygiao = DateTime.Parse(f["NgayGiao"]);
+                dh.Dathanhtoan = false;
+              
+                dh.DienThoaiGH = f["SDTGiaoHang"];
+                db.DONDATHANG.AddOrUpdate(dh);
+                db.SaveChanges();
+                return RedirectToAction("XacNhanDatHang", "GioHang");
+            }
+           return RedirectToAction("Index", "GioHang");
+        }
+        public ActionResult XacNhanDatHang()
+        {
+            return View();
         }
     }
 }

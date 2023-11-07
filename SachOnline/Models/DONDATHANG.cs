@@ -28,6 +28,10 @@ namespace SachOnline.Models
 
         public int? MaKH { get; set; }
 
+        public string DiaChiGH { get; set; }
+
+        public string DienThoaiGH { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETDONTHANG> CHITIETDONTHANG { get; set; }
 
