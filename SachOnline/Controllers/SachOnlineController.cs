@@ -16,9 +16,11 @@ namespace SachOnline.Controllers
         Model1 db = new Model1();
 
         // GET: SachOnline
-        public ActionResult Index(int? page)
+        public ActionResult Index(string searchString, int? page)
         {
-            var lstSach = db.SACH.OrderBy(s => s.Masach);
+            searchString = searchString ?? "";
+
+            var lstSach = db.SACH.Where(s=>s.Tensach.Contains(searchString)).OrderBy(s => s.Masach);
             int pageNumber = (page) ?? 1;
             int pageSize = 6;
             ViewBag.TieuDe = "SACH MOI";

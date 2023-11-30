@@ -1,0 +1,45 @@
+﻿@model SachOnline.Models.SACH
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa Sách</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+ 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Tên sách:</dt>
+        <dd>@Html.DisplayFor(model => model.Tensach) </dd>
+        <dt> Mô tả: </dt>
+        <dd>
+            @Html.Raw(@Model.Mota.ToString().Replace("\n",
+       "</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp"))
+        </dd>
+        <dt> Ảnh bìa: </dt>
+        <dd> <img  style="height:200px;width:150px" src="@Model.Anhbia" alt=" @Model.Tensach"> </dd>
+        <dt> Ngày cập nhật:</dt>
+        <dd> @Html.FormatValue(@Model.Ngaycapnhat, "{0:dd/MM/yyyy}") </dd>
+        <dt> Số lượng bán: </dt>
+        <dd> @Html.DisplayFor(model => model.Soluongton)</dd>
+        <dt>Giá bán: </dt>
+        <dd> @Html.FormatValue(@Model.Giaban, "{0:#,##0}") VNĐ</dd>
+        <dt>Chủ đề:</dt>
+        <dd>@Html.DisplayFor(model => model.CHUDE.TenChuDe)</dd>
+        <dt>Nhà xuất bản:</dt>
+        <dd>@Html.DisplayFor(model => model.NHAXUATBAN.TenNXB)</dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+@Html.AntiForgeryToken()
+<div class="form-actions no-color">
+    <input type="submit" value="XÓA" class="btn btn-default" /> |
+    @Html.ActionLink("VỀ TRANG QUẢN LÝ SÁCH", "Index")
+</div>
+}
+</div>
+
+

@@ -1,0 +1,171 @@
+﻿@using PagedList.Mvc;
+@using SachOnline.Models
+
+@*@model IEnumerable<SachOnline.Models.SACH>*@
+@helper Truncate(string s, int length)
+{
+    if (s.Length < length)
+    {
+        @s
+    }
+    else
+    {
+        @s.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script src="~/ckeditor/ckeditor.js"></script>
+
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            "Tên Sách"
+        </th>
+        <th>
+            "Mô Tả"
+        </th>
+        <th>
+            "Ảnh Bìa"
+        </th>
+        <th>
+            "Ngày Cập Nhật"
+        </th>
+        <th>
+            "Số Lượng Tồn"
+        </th>
+        <th>
+            "Giá Bán"
+        </th>
+        <th>
+            "Tên Chủ Đề"
+        </th>
+        <th>
+            "Tên Nhà Xuất Bản"
+        </th>
+
+
+
+
+
+        <th style="width:250px">
+
+        </th>
+    </tr>
+
+    @foreach (SACH item in Model)
+    {
+        <tr>
+            <td>
+                @Truncate(item.Tensach, 50)
+            </td>
+            <td>
+                @Html.Raw(HttpUtility.HtmlDecode(Truncate((item.Mota) ?? "", 70).ToString()))
+
+            </td>
+
+            <td>
+                <img src="@item.Anhbia" style="width:50px;" />
+
+            </td>
+            <td>
+                @Html.FormatValue(@item.Ngaycapnhat, "{0:dd/MM/yyyy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongton)
+            </td>
+            <td>
+                @Html.FormatValue(item.Giaban, "{0:#,##0}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHAXUATBAN.TenNXB)
+            </td>
+
+
+
+
+
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.Masach })" class="btn btn-warning"> Edit</a>
+                <a href="@Url.Action("Details", new { id = item.Masach })" class="btn btn-primary"> Details</a>
+                <a href="@Url.Action("Delete", new { id = item.Masach })" class="btn btn-danger"> Delete</a>
+            </td>
+        </tr>
+    }
+
+
+</table>
+
+
+
+
+    @*Tạo liên kết phần trang*@
+    Trang @(Model.PageCount < Model.PageNumber ? 0 :
+Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+
+        .pagination li {
+            margin: 0 5px;
+            display: inline-block;
+        }
+
+        .pagination a, .pagination span {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #007bff;
+            background-color: #fff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .pagination a:hover {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+        .pagination .PagedList-ellipses {
+            padding: 8px 16px;
+        }
+
+            .pagination .PagedList-ellipses a {
+                pointer-events: none;
+                cursor: not-allowed;
+                color: #666;
+                background-color: #ddd;
+            }
+
+                .pagination .PagedList-ellipses a:hover {
+                    background-color: #ddd;
+                    color: #666;
+                }
+
+        .pagination .PagedList-selected a {
+            background-color: #007bff;
+            color: #fff;
+            cursor: default;
+        }
+
+        .pagination .PagedList-currentPage {
+            background-color: #007bff;
+            color: #fff;
+        }
+</style>
