@@ -69,7 +69,7 @@ namespace SachOnline.Controllers
         }
         public ActionResult DangXuat()
         {
-            Session["UserName"] = null;
+            Session["Taikhoan"] = null;
             return RedirectToAction("Index","SachOnline");
         }
     }

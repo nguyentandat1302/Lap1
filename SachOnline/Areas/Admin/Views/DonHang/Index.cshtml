@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SachOnline.Models.CHITIETDONTHANG>
+﻿@model IEnumerable<SachOnline.Models.DONDATHANG>
 
 @{
     ViewBag.Title = "Index";
@@ -13,16 +13,25 @@
 <table class="table">
     <tr>
         <th>
-            Chi Tiết Đơn hàng:
+            @Html.DisplayNameFor(model => model.KHACHHANG.HoTen)
         </th>
         <th>
-            Tên Sách:
+            @Html.DisplayNameFor(model => model.Dathanhtoan)
         </th>
         <th>
-            Số Lượng:
+            @Html.DisplayNameFor(model => model.Tinhtranggiaohang)
         </th>
         <th>
-            Đơn Giá:
+            @Html.DisplayNameFor(model => model.Ngaydat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngaygiao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChiGH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DienThoaiGH)
         </th>
         <th></th>
     </tr>
@@ -30,22 +39,32 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.DONDATHANG.DiaChiGH)
+            @Html.DisplayFor(modelItem => item.KHACHHANG.HoTen)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SACH.Tensach)
+            @Html.DisplayFor(modelItem => item.Dathanhtoan)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Soluong)
+            @Html.DisplayFor(modelItem => item.Tinhtranggiaohang)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Dongia)
+            @Html.DisplayFor(modelItem => item.Ngaydat)
         </td>
         <td>
-            <a href="@Url.Action("Edit", new { id = item.Masach })" class="btn btn-warning"> Edit</a>
-            <a href="@Url.Action("Details", new { id = item.Masach })" class="btn btn-primary"> Details</a>
-            <a href="@Url.Action("Delete", new { id = item.Masach })" class="btn btn-danger"> Delete</a>
-</tr>
+            @Html.DisplayFor(modelItem => item.Ngaygiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChiGH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoaiGH)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.MaDonHang })" class="btn btn-warning"> Edit</a>
+            <a href="@Url.Action("Details", new { id = item.MaDonHang })" class="btn btn-primary"> Details</a>
+            <a href="@Url.Action("Delete", new { id = item.MaDonHang })" class="btn btn-danger"> Delete</a>
+        </td>
+    </tr>
 }
 
 </table>

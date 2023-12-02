@@ -18,9 +18,9 @@ namespace SachOnline.Models
         [Key]
         public int MaDonHang { get; set; }
 
-        public bool? Dathanhtoan { get; set; }
+        public bool Dathanhtoan { get; set; }
 
-        public bool? Tinhtranggiaohang { get; set; }
+        public bool Tinhtranggiaohang { get; set; }
 
         public DateTime? Ngaydat { get; set; }
 

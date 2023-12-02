@@ -160,6 +160,10 @@
     <Compile Include="Migrations\202312010944078_sfdsfds.designer.cs">
       <DependentUpon>202312010944078_sfdsfds.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312021816491_dsfdsfds.cs" />
+    <Compile Include="Migrations\202312021816491_dsfdsfds.designer.cs">
+      <DependentUpon>202312021816491_dsfdsfds.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\USER.cs" />
@@ -233,6 +237,10 @@
     <Content Include="Areas\Admin\Views\Feedback\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ChuDe\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ChuDe\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
+    <None Include="Properties\PublishProfiles\datlatao123-001-site1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\datlatao123-001-site1 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -318,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312010944078_sfdsfds.resx">
       <DependentUpon>202312010944078_sfdsfds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312021816491_dsfdsfds.resx">
+      <DependentUpon>202312021816491_dsfdsfds.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
