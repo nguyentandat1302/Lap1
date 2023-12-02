@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SachOnline.Models.CHITIETDONTHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Chi Tiết Đơn hàng:
+        </th>
+        <th>
+            Tên Sách:
+        </th>
+        <th>
+            Số Lượng:
+        </th>
+        <th>
+            Đơn Giá:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DONDATHANG.DiaChiGH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SACH.Tensach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soluong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dongia)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.Masach })" class="btn btn-warning"> Edit</a>
+            <a href="@Url.Action("Details", new { id = item.Masach })" class="btn btn-primary"> Details</a>
+            <a href="@Url.Action("Delete", new { id = item.Masach })" class="btn btn-danger"> Delete</a>
+</tr>
+}
+
+</table>

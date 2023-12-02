@@ -56,7 +56,7 @@ namespace SachOnline.Controllers
                 var u = db.KHACHHANG.FirstOrDefault(k=> k.Taikhoan== user.Username && k.Matkhau== user.Password);
                 if (u != null)
                 {
-                    Session["UserName"] = u;
+                    Session["Taikhoan"] = u;
                     ViewBag.ThongBao = "Đăng Nhập Thành Công";
                     return Redirect("~/");
                 }

@@ -1,23 +1,69 @@
-﻿<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
-   
+﻿
+@{
+    ViewBag.Title = "ChiTietSach";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/Site.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+        margin: 0;
+    }
+
+    .comment-rating-button {
+        background-color: #b6ff00;
+        color: #000000;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-decoration: none; /* Remove underline from the link */
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        height:100px;
+        width:200px;
+    }
+
+        .comment-rating-button:hover {
+            background-color: #ff0000;
+        }
+
+</style>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
+
 </nav>
 
 <main class="mt-5 pt-4">
     <div class="container mt-5">
-      
+
         <div class="row">
-            
+
             <div class="col-md-6 mb-4">
 
                 <img src=@Model.Anhbia height="400" alt="MDB Logo" loading="lazy" />
             </div>
-            
+
             <div class="col-md-6 mb-4">
-               
+
                 <div class="p-4">
+
+
                     <div class="mb-3">
                         <a href="">
-                            <span class="badge bg-dark me-1">Category 2</span>
+                            <span class="badge bg-dark me-1">@Model.Tensach</span>
                         </a>
                         <a href="">
                             <span class="badge bg-info me-1">New</span>
@@ -29,33 +75,36 @@
 
                     <p class="lead">
                         <span class="me-1">
-                            <del>$200</del>
+                            <del>500,000</del>
                         </span>
-                        <span>$100</span>
+                        <span>@Model.Giaban</span>
                     </p>
 
                     <strong><p style="font-size: 20px;">Mô Tả</p></strong>
 
-                    <p>Sách Rất Có Nhiều Bổ Ích</p>
+                    <p>@Model.Mota</p>
 
                     <form class="d-flex justify-content-left">
-                       
+
                         <div class="form-outline me-1" style="width: 100px;">
                             <input type="number" value="1" class="form-control" />
                         </div>
-                       <a href="@Url.Action("Index","GioHang"), "class="btn btn-primary">
+                        <a href="@Url.Action("Index","GioHang"), " class="btn btn-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                             </svg> Add to Cart
                         </a>
                     </form>
                 </div>
-              
+
             </div>
-           
+
         </div>
-      
-
         <hr />
+    </div>
+ 
+    <a href="@Url.Action("Feedback","SachOnline")" class="comment-rating-button" >Comment and Rating</a>
 
-       
+</main>
+
+

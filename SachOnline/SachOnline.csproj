@@ -138,7 +138,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ChuDeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FeedbackController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhaXuatBanController.cs" />
     <Compile Include="Areas\Admin\Controllers\SachController.cs" />
     <Compile Include="Areas\Navigation\NavigationModels.cs" />
@@ -153,7 +156,12 @@
     <Compile Include="Migrations\202311150652203_BBVcvfhfhB.designer.cs">
       <DependentUpon>202311150652203_BBVcvfhfhB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312010944078_sfdsfds.cs" />
+    <Compile Include="Migrations\202312010944078_sfdsfds.designer.cs">
+      <DependentUpon>202312010944078_sfdsfds.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\USER.cs" />
     <Compile Include="Models\CHITIETDONTHANG.cs" />
     <Compile Include="Models\CHUDE.cs" />
@@ -213,13 +221,18 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Navigation\Navigation.json" />
     <Content Include="Areas\Admin\Views\Home\MenuPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\ChuDe\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\NhaXuatBan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Sach\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaXuatBan\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Feedback\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuDe\Create.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -250,7 +263,6 @@
     <Content Include="Views\SachOnline\Index.cshtml" />
     <Content Include="Views\Shared\ChuDePartial.cshtml" />
     <Content Include="Views\Shared\SachBanNhieuPartial.cshtml" />
-    <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
     <Content Include="Views\User\DangKy.cshtml" />
     <Content Include="Views\User\DangNhap.cshtml" />
     <Content Include="Views\Shared\NhaXuatBanPartial.cshtml" />
@@ -258,6 +270,12 @@
     <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
     <Content Include="Views\GioHang\XacNhanDatHang.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\SachOnline\GioiThieu.cshtml" />
+    <Content Include="Views\SachOnline\LienHe.cshtml" />
+    <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
+    <Content Include="Views\SachOnline\Feedback.cshtml" />
+    <Content Include="Views\SachOnline\ViewFeedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +315,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202311150652203_BBVcvfhfhB.resx">
       <DependentUpon>202311150652203_BBVcvfhfhB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312010944078_sfdsfds.resx">
+      <DependentUpon>202312010944078_sfdsfds.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

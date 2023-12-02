@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace SachOnline.Areas.Admin.Controllers
 {
-    public class NhaXuatBanController : Controller
+    public class DonHangController : Controller
     {
         Model1 db = new Model1();
         // GET: Admin/Sach
@@ -16,7 +16,7 @@ namespace SachOnline.Areas.Admin.Controllers
         {
             int iPageNum = (page ?? 1);
             int iPageSize = 7;
-            return View(db.NHAXUATBAN.ToList().OrderBy(n => n.MaNXB).ToPagedList(iPageNum, iPageSize));
+            return View(db.CHITIETDONTHANG.ToList().OrderBy(n => n.MaDonHang).ToPagedList(iPageNum, iPageSize));
         }
     }
 }

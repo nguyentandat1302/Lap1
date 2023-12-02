@@ -47,7 +47,7 @@
     },
     {
       "DisplayName": "Quản Lý Đơn Hàng",
-      "Icon": "bi-coin",
+      "Icon": "bi bi-cart-plus-fill",
       "Link": "/Admin/DonHang/Index",
       "IsNested": false,
       "Sequence": 6,
@@ -55,8 +55,17 @@
       "NestedItems": []
     },
     {
+      "DisplayName": "Quản Lý Feedback",
+      "Icon": "bi bi-chat-dots-fill",
+      "Link": "/Admin/Feedback/Index",
+      "IsNested": false,
+      "Sequence": 7,
+      "UserRoles": [ "cashier", "admin" ],
+      "NestedItems": []
+    },
+    {
       "DisplayName": "Đăng Xuất",
-      "Icon": "bi-coin",
+      "Icon": "bi bi-box-arrow-right",
       "Link": "/Admin/Home/Logout",
       "IsNested": false,
       "Sequence": 7,

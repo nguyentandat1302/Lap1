@@ -20,7 +20,7 @@ namespace SachOnline.Controllers
         {
             searchString = searchString ?? "";
 
-            var lstSach = db.SACH.Where(s=>s.Tensach.Contains(searchString)).OrderBy(s => s.Masach);
+            var lstSach = db.SACH.Where(s=>s.Tensach.Contains(searchString)).OrderBy(s => s.Masach).ToList();
             int pageNumber = (page) ?? 1;
             int pageSize = 6;
             ViewBag.TieuDe = "SACH MOI";
@@ -67,7 +67,62 @@ namespace SachOnline.Controllers
         {
             return View();
         }
-      
+        public ActionResult LienHe()
+        {
+            return View();
+        }
+        //public ActionResult Rating(Feedback model)
+        //{
+        //    if (Session["TaiKhoan"] == null)
+        //    {
+        //        return RedirectToAction("DangNhap", "User");
+
+        //    }
+        //    return RedirectToAction("ChiTietSach", "Sach", new { Masach = model.MaKH });
+        //}
+        [HttpGet]
+        public ActionResult Feedback()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Feedback(Feedback Model)
+        {
+            if (Session["TaiKhoan"] == null)
+            {
+                // Người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                return RedirectToAction("DangNhap", "User");
+            }
+            else
+            {
+                // Người dùng đã đăng nhập, tiếp tục xử lý bình luận
+                var u = (KHACHHANG)Session["TaiKhoan"]; 
+
+                if (u != null)
+                {
+                    Model.MaKH = u.MaKH;
+                    db.Feedback.Add(Model);
+                    db.SaveChanges();
+
+                    
+                    return RedirectToAction("ViewFeedback", "Feedback");
+                }
+                else
+                {
+              
+                    ViewBag.ErrorMessage = "Không thể xác định thông tin người dùng.";
+                    return View("Error"); 
+                }
+            }
+        }
+
+        public ActionResult ViewFeedback()
+        {
+            var list = from fb in db.Feedback select fb;
+            return View(list);
+        }
+
     }
 
 }

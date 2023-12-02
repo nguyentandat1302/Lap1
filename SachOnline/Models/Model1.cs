@@ -23,6 +23,8 @@ namespace SachOnline.Models
         public virtual DbSet<VIETSACH> VIETSACH { get; set; }
 
         public virtual DbSet<USER> USERs { get; set; }
+        public virtual DbSet<Feedback> Feedback { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
