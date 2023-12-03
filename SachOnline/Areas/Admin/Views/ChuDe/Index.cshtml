@@ -8,7 +8,9 @@
 
 <h2>Chủ Đề</h2>
 
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -25,7 +27,6 @@
             </td>
             <td>
 
-                <a href="@Url.Action("Create", new { id = item.MaCD })" class="btn btn-primary"> Create</a>
                 <a href="@Url.Action("Delete", new { id = item.MaCD })" class="btn btn-danger"> Delete</a>
             </td>
         </tr>

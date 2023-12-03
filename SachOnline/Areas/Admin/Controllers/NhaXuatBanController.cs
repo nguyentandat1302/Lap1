@@ -18,5 +18,22 @@ namespace SachOnline.Areas.Admin.Controllers
             int iPageSize = 7;
             return View(db.NHAXUATBAN.ToList().OrderBy(n => n.MaNXB).ToPagedList(iPageNum, iPageSize));
         }
+        public ActionResult Create()
+        {
+            ViewBag.MaCD = new SelectList(db.NHAXUATBAN.ToList().OrderBy(n => n.TenNXB), "MaCD", "TenChuDe");
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Create(SACH model, FormCollection f, HttpPostedFileBase fFileUpload)
+        {
+
+            ViewBag.MaCD = new SelectList(db.CHUDE.ToList().OrderBy(c => c.MaCD), "MaCD", "TenChuDe");
+
+
+            return View();
+        }
     }
 }

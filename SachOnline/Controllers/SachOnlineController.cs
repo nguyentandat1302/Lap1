@@ -117,11 +117,7 @@ namespace SachOnline.Controllers
             }
         }
 
-        public ActionResult ViewFeedback()
-        {
-            var list = from fb in db.Feedback select fb;
-            return View(list);
-        }
+       
 
     }
 

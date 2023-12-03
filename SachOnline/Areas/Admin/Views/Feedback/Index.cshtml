@@ -149,7 +149,9 @@
                     }
                 </div>
                 <div>@item.Feedback1</div>
-
+                <td>
+                <a href="@Url.Action("Delete", new { id = item.IDFeedback })" class="btn btn-danger"> Delete</a>
+                 </td>
                 <hr>
             }
         </div>

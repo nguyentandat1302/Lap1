@@ -1,11 +1,11 @@
 ﻿
-
 @model SachOnline.Models.Feedback
 @{
     ViewBag.Title = "Feedback";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2; /* Light gray background */
+            background-color: #18e7df;
             margin: 0;
             padding: 0;
             display: flex;
@@ -27,9 +27,9 @@
         }
 
         .feedback-container {
-            width: 70%;
+            width: 70%; /* Điều chỉnh chiều rộng tối đa cho phù hợp với màn hình laptop */
             max-width: 600px;
-            background-color: #ffffff; /* White background */
+            background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -43,13 +43,13 @@
         }
 
             .stars span {
-                color: #ddd; /* Light gray stars */
+                color: #ddd;
                 text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
             }
 
                 .stars span:hover,
                 .stars span.active {
-                    color: #ffcc00; /* Yellow on hover/active */
+                    color: #ffdd00;
                 }
 
         #feedbackInput {
@@ -62,7 +62,7 @@
 
         #saveButton {
             background-color: #4caf50;
-            color: #fff;
+            color: #18e7df;
             padding: 10px 20px;
             border: none;
             border-radius: 4px;
@@ -92,7 +92,7 @@
 <body>
     <form action="/User/Feedback" method="post">
         <div class="feedback-container">
-            <h2>Xin hãy Bình Luận Cho Tôi Biết Về Ý Kiến Của Bạn</h2>
+            <h2>HÃY ĐỠ LẠI BÌNH LUẬN CỦA BẠN CHO TÔI BIẾT</h2>
             <div class="stars" id="stars">
                 <span class="star" onclick="rate(1)">★</span>
                 <span class="star" onclick="rate(2)">★</span>
@@ -104,7 +104,7 @@
 
             <textarea id="feedbackInput" name="Feedback1" placeholder="Enter your feedback"></textarea>
             @Html.ValidationMessageFor(model => model.Feedback1, "", new { @class = "text-danger" })
-            <a type="submit" class="btn btn-info" href=" @Url.Action("ViewFeedback","SachOnline")">Save</a>
+            <a  href=" @Url.Action("ViewFeedback","User")" class="btn btn-outline-secondary">Save</a>
 
             <div id="feedbackList"></div>
             @if (ViewBag.List != null)
@@ -130,8 +130,7 @@
         </div>
     </form>
 
-    <script>
-    let currentRating = 0;
+    <script>let currentRating = 0;
 
         function rate(stars) {
             currentRating = stars;

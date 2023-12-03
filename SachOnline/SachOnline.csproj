@@ -238,6 +238,13 @@
     <Content Include="Areas\Admin\Views\ChuDe\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ChuDe\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DonHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaXuatBan\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Feedback\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KhachHang\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\datlatao123-001-site1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\datlatao123-001-site1 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -282,8 +289,8 @@
     <Content Include="Views\SachOnline\GioiThieu.cshtml" />
     <Content Include="Views\SachOnline\LienHe.cshtml" />
     <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
-    <Content Include="Views\SachOnline\Feedback.cshtml" />
-    <Content Include="Views\SachOnline\ViewFeedback.cshtml" />
+    <Content Include="Views\User\ViewFeedback.cshtml" />
+    <Content Include="Views\User\Feedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

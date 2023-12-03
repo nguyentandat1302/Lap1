@@ -72,5 +72,28 @@ namespace SachOnline.Controllers
             Session["Taikhoan"] = null;
             return RedirectToAction("Index","SachOnline");
         }
+        [HttpGet]
+        public ActionResult Feedback()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Feedback(Feedback Model)
+        {
+            ViewBag.List = from fb in db.Feedback select fb;
+            var u = (KHACHHANG)Session["Taikhoan"];
+            Model.MaKH = u.MaKH;
+            db.Feedback.Add(Model);
+            db.SaveChanges();
+
+            return View(Model);
+        }
+
+        public ActionResult ViewFeedback()
+        {
+            var list = from fb in db.Feedback select fb;
+            return View(list);
+        }
     }
 }

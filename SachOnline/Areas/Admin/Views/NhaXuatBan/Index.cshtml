@@ -6,7 +6,9 @@
 }
 
 <h2>Nhà Xuất Bản</h2>
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 
 <table class="table">
     <tr>
@@ -35,7 +37,6 @@
         </td>
         <td>
     
-            <a href="@Url.Action("Details", new { id = item.MaNXB })" class="btn btn-primary"> Create</a>
             <a href="@Url.Action("Delete", new { id = item.MaNXB })" class="btn btn-danger"> Delete</a>
         </td>
     </tr>

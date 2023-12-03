@@ -49,6 +49,48 @@ namespace SachOnline.Areas.Admin.Controllers
             //return View("Edit", "DonHang", new {Area = "Admin", id = dh.MaDonHang});
             //hoac neu cung controler goi thi bo qua
             return View("Edit", new { id = dh.MaDonHang });
+        }   
+            
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var donhang = db.DONDATHANG.SingleOrDefault(n => n.MaDonHang == id);
+            if (donhang == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(donhang);
         }
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirm(int id, FormCollection f)
+        {
+            var donhang = db.DONDATHANG.SingleOrDefault(n => n.MaDonHang == id);
+            if (donhang == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+           
+           
+            db.DONDATHANG.Remove(donhang);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult Details(int id)
+        {
+            var donhang = db.DONDATHANG.SingleOrDefault(n => n.MaDonHang == id);
+            if (donhang == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(donhang);
+        }
+
+
+
     }
 }
